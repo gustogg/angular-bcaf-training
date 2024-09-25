@@ -1,0 +1,7 @@
+<ol class="list-decimal list-inside bg-violet-50 rounded-lg p-4 space-y-2">
+  <app-todo-detail
+    *ngFor="let todo of getTodos()"
+    [todo]="todo"
+    [forTrash]="forTrash"
+  ></app-todo-detail>
+</ol>

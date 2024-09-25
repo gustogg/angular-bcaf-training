@@ -1,0 +1,78 @@
+<li class="flex justify-between items-start bg-violet-50 p-4 rounded-lg shadow-md">
+  <div class="flex-1">
+    <!-- Display Task or Edit Mode -->
+    <div *ngIf="!isEdit" [ngClass]="getClass(todo.isDone)" class="font-bold text-violet-700 flex items-center space-x-2">
+      <input *ngIf="!forTrash" type="checkbox" [(ngModel)]="todo.isDone" class="form-checkbox text-violet-500" />
+      <span>{{ todo.task }}</span>
+    </div>
+    <div *ngIf="isEdit" [ngClass]="getClass(todo.isDone)" class="font-bold">
+      <input
+        type="text"
+        (keyup.enter)="edit()"
+        [(ngModel)]="todo.task"
+        class="form-input block w-full p-2 border border-violet-300 rounded-md shadow-sm focus:ring-violet-500 focus:border-violet-500"
+      />
+    </div>
+  </div>
+
+  <!-- For Trash Actions -->
+  <div *ngIf="forTrash" class="flex space-x-2">
+    <button
+      (click)="restore()"
+      class="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 focus:outline-none"
+    >
+      <fa-icon [icon]="icons.restore"></fa-icon>
+    </button>
+  </div>
+
+  <!-- Standard Actions -->
+  <div *ngIf="!forTrash" class="flex space-x-2">
+    <!-- Remove button -->
+    <button
+      *ngIf="!isEdit && !isConfirmRemove"
+      (click)="isConfirmRemove = !isConfirmRemove"
+      class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 focus:outline-none"
+    >
+      <fa-icon [icon]="icons.remove"></fa-icon>
+    </button>
+
+    <!-- Confirm Remove -->
+    <button
+      *ngIf="isConfirmRemove"
+      (click)="remove()"
+      class="bg-violet-300 text-white p-2 rounded-full hover:bg-violet-400 focus:outline-none"
+    >
+      <fa-icon [icon]="icons.confirm"></fa-icon>
+    </button>
+
+    <!-- Edit/Save Button -->
+    <button
+      *ngIf="!isConfirmRemove"
+      (click)="edit()"
+      [ngClass]="isEdit ? 'bg-green-500' : 'bg-yellow-500'"
+      class="text-white p-2 rounded-full hover:bg-opacity-80 focus:outline-none"
+    >
+      <div *ngIf="isEdit; then tptSave; else tptEdit"></div>
+      <ng-template #tptSave>
+        <fa-icon [icon]="icons.checklist"></fa-icon>
+      </ng-template>
+      <ng-template #tptEdit>
+        <fa-icon [icon]="icons.edit"></fa-icon>
+      </ng-template>
+    </button>
+
+    <!-- Cancel Edit -->
+    <button *ngIf="isEdit" (click)="edit()" class="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-600 focus:outline-none">
+      <fa-icon [icon]="icons.cancel"></fa-icon>
+    </button>
+
+    <!-- Cancel Remove Confirmation -->
+    <button
+      *ngIf="isConfirmRemove"
+      (click)="isConfirmRemove = false"
+      class="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-600 focus:outline-none"
+    >
+      <fa-icon [icon]="icons.cancel"></fa-icon>
+    </button>
+  </div>
+</li>
