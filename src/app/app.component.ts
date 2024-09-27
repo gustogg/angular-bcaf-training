@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './cores/services/user.service';
+import { IUser } from './cores/interfaces/i-user';
 
 class MyStyle {
   color: string = 'green';
@@ -12,6 +15,9 @@ class MyStyle {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  users: IUser[] = [];
+  loading: boolean = false;
+
   counter: number = 10;
 
   handler(data: number) {
@@ -43,7 +49,7 @@ export class AppComponent {
       categories: [
         {
           id: 3,
-          name: 'Eleltronik',
+          name: 'Elektronik',
         },
         {
           id: 2,
@@ -101,3 +107,4 @@ interface IProduct {
   price: number;
   categories?: ICategory[];
 }
+

@@ -1,0 +1,76 @@
+<div class="bg-white shadow-md rounded-lg p-6">
+    <div class="mb-6">
+      <h5 class="text-xl font-bold text-violet-900">RESERVASI</h5>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <!-- Nomor Kontrak -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Nomor Kontrak</label>
+        <input
+          [(ngModel)]="reservasi.nomorKontrak"
+          type="text"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        />
+      </div>
+  
+      <!-- Nomor BPKB -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Nomor BPKB</label>
+        <input
+          [(ngModel)]="reservasi.nomorBPKB"
+          type="text"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        />
+      </div>
+  
+      <!-- Tipe Kendaraan -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Tipe Kendaraan</label>
+        <select
+          [(ngModel)]="reservasi.tipeKendaraan"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        >
+          <option [ngValue]="'mobil'">Mobil</option>
+          <option [ngValue]="'motor'">Motor</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <!-- Jadwal -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Jadwal</label>
+        <input
+          [(ngModel)]="reservasi.jadwal"
+          type="date"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        />
+      </div>
+  
+      <!-- Biaya Real -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Biaya Real</label>
+        <input
+          [(ngModel)]="reservasi.real"
+          type="number"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        />
+      </div>
+  
+      <!-- Biaya Estimasi -->
+      <div>
+        <label class="block text-sm font-medium text-violet-700">Biaya Estimasi</label>
+        <input
+          [(ngModel)]="reservasi.estimasi"
+          type="number"
+          class="mt-1 p-2 block w-full border border-violet-300 rounded-md focus:ring-violet-500 focus:border-violet-500"
+        />
+      </div>
+    </div>
+  
+    <pre class="bg-violet-100 p-4 rounded-lg">
+      {{ reservasi | json }}
+    </pre>
+  </div>
+  

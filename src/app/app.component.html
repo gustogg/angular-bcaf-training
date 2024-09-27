@@ -1,21 +1,38 @@
-<div class="h-screen overflow-y-hidden">
-  <app-navigation></app-navigation>
-  <div class="w-screen pt-10 bg-blue-100 pb-24 text-center bg-violet-900">
+<div class="min-h-screen w-full pt-10 bg-violet-200 pb-24 bg-violet-900">
+  <!-- <app-navigation></app-navigation> -->
+
     <!-- <app-berkas
       [oncom]="counter"
       [product]="product"
       (emit)="handler($event)"
     ></app-berkas> -->
-    <div class="flex">
-    <app-todo></app-todo>
-    <app-todo [title]="'Trash'" [forTrash]="true"></app-todo>
 
-  </div>
-    <!-- <h1 class="text-4xl font-bold text-red-500 font-serif">Container Component 'Parent'</h1>
-    <div class="text-xl text-red-500 mt-10">" {{ counter }} "</div> -->
+    <!-- ini app todo -->
+    
+
+    <div class="container mx-auto my-5">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div class="md:col-span-4 lg:col-span-2">
+          <app-customer-choice></app-customer-choice>
+        </div>
+        <div class="md:col-span-4 lg:col-span-2">
+          <app-reservasi-create> </app-reservasi-create>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex overflow-y-auto flex-col gap-4 md:flex-row w-1/2 mx-auto mt-10">
+      <app-todo class="w-full "></app-todo>
+      <app-todo class="w-full" [title]="'Trash'" [forTrash]="true"></app-todo>
+
+    </div>
+
+</div>
+    <h1 class="text-4xl font-bold text-red-500 font-serif">Container Component 'Parent'</h1>
+    <div class="text-xl text-red-500 mt-10">" {{ counter }} "</div>
 
     <!-- Directive Test -->
-    <!-- <div class="form-group">
+    <div class="form-group pt-40">
       <label>Font Size</label>
       <input type="number" [(ngModel)]="fontSize" class="form-control" />
     </div>
@@ -41,30 +58,30 @@
       Impedit suscipit tempore maiores aliquid voluptates, quas eveniet delectus non
       consequatur vel aliquam officia ratione voluptate vero, corporis dolorum
       laboriosam.
-    </div> -->
+    </div>
     
     <!-- Classifying - ngIf -->
-    <!-- <div class="space-y-4"> -->
+    <div class="space-y-4">
       <!-- Checkbox with Tailwind Styling -->
-      <!-- <div class="flex items-center mx-auto text-center justify-center">
+      <div class="flex">
         <input type="checkbox" [(ngModel)]="show" class="mr-2 h-4 w-4 text-violet-600 border-gray-300 rounded focus:ring-violet-500" />
-        <label class="text-white">Aktifkan</label>
-      </div> -->
+        <label class="">Aktifkan</label>
+      </div>
     
       <!-- First ngIf Example -->
-      <!-- <h1 class="text-xl font-bold text-white">Cara ngIf 1</h1>
+      <h1 class="text-xl font-bold text-white">Cara ngIf 1</h1>
       <h5 *ngIf="show" class="text-green-500">Show = True</h5>
-      <h5 *ngIf="!show" class="text-red-500">Show = False</h5> -->
+      <h5 *ngIf="!show" class="text-red-500">Show = False</h5>
     
       <!-- Second ngIf Example -->
-      <!-- <h1 class="text-xl font-bold text-white">Cara ngIf 2</h1>
+      <h1 class="text-xl font-bold text-white">Cara ngIf 2</h1>
       <h5 *ngIf="show; else a1" class="text-green-500">Show = True</h5>
       <ng-template #a1>
         <h5 class="text-red-500">Show = False</h5>
-      </ng-template> -->
+      </ng-template>
     
       <!-- Third ngIf Example -->
-      <!-- <h1 class="text-xl font-bold text-white">Cara ngIf 3</h1>
+      <h1 class="text-xl font-bold text-white">Cara ngIf 3</h1>
       <h5 *ngIf="show; then b1; else b2" class="text-green-500">Show = True</h5>
       <ng-template #b1>
         <h5 class="text-green-500">Show = True</h5>
@@ -72,9 +89,8 @@
       <ng-template #b2>
         <h5 class="text-red-500">Show = False</h5>
       </ng-template>
-    </div> -->
+    </div>
 
-    
-  <!-- <img src="path-to-your-gif.gif" alt="Description of GIF" class="mx-auto my-10"> -->
-</div>
+
+
 

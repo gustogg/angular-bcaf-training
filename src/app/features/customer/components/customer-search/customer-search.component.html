@@ -1,0 +1,18 @@
+<div class="flex items-center mb-3">
+    <input
+      type="text"
+      class="flex-grow p-2 border border-violet-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+      placeholder="Search..."
+      [(ngModel)]="query"
+      (keydown.enter)="onSearch()"
+    />
+    
+    <button 
+      class="bg-violet-500 hover:bg-violet-600 text-white p-2 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+      type="button"
+      (click)="onSearch()"
+    >
+      <fa-icon [icon]="icons.search"></fa-icon>
+    </button>
+  </div>
+  

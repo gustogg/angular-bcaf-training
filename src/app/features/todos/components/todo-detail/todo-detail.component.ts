@@ -45,7 +45,7 @@ export class TodoDetailComponent {
 
   getClass(isDone: boolean) {
     if (isDone) {
-      return 'text-decoration-line-through';
+      return 'line-through';
     }
 
     return '';
