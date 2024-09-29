@@ -17,6 +17,8 @@ export class CustomerService {
   //     `${environment.BASE_URL}/customer?_limit=10`
   //   );
   // }
+
+  // munculkan semua data
   public all(): Observable<ICustomer[]> {
     return this.http.get<ICustomer[]>(`${environment.BASE_URL}/customer`);
   }
