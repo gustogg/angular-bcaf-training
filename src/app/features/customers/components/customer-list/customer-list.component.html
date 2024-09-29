@@ -1,6 +1,15 @@
 <ol class="list-group list-group-numbered">
   <app-customer-detail
-    *ngFor="let customer of customers"
+    *ngFor="let customer of paginatedCustomers"
     [customer]="customer"
+    (click)="onCustomerClick(customer)" 
   ></app-customer-detail>
 </ol>
+
+<ngb-pagination
+  [collectionSize]="customers.length"
+  [(page)]="currentPage"
+  [maxSize]="5"
+  [pageSize]="itemsPerPage"
+  (pageChange)="onPageChange($event)">
+</ngb-pagination>

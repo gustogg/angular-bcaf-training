@@ -12,16 +12,19 @@ export class CustomerService {
 
   constructor(private http: HttpClient) {}
 
+  // public all(): Observable<ICustomer[]> {
+  //   return this.http.get<ICustomer[]>(
+  //     `${environment.BASE_URL}/customer?_limit=10`
+  //   );
+  // }
   public all(): Observable<ICustomer[]> {
-    return this.http.get<ICustomer[]>(
-      `${environment.BASE_URL}/customer?_limit=5`
-    );
+    return this.http.get<ICustomer[]>(`${environment.BASE_URL}/customer`);
   }
 
   
   public search(field: string, query: string): Observable<ICustomer[]> {
     return this.http.get<ICustomer[]>(
-      `${environment.BASE_URL}/customer?_limit=5&${field}=${query}`
+      `${environment.BASE_URL}/customer?_limit=10&${field}=${query}`
     );
   }
 

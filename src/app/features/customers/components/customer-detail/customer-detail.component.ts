@@ -13,7 +13,7 @@ export class CustomerDetailComponent {
 
   static selectedCustomer: ICustomer | null = null; // Static property to track the globally selected customer
 
-  isSelected: boolean = false; // Local property
+  isSelected: boolean = false; // tambahan fitur--->  Local property
 
   constructor(private reservasiService: ReservasiService) {}
 
@@ -23,7 +23,7 @@ export class CustomerDetailComponent {
   }
 
   isCustomerSelected(): boolean {
-    return CustomerDetailComponent.selectedCustomer === this.customer; // Check if the current customer is the selected one
+    return CustomerDetailComponent.selectedCustomer === this.customer; // tambahan fitur--->  Check if the current customer is the selected one
   }
   
   
