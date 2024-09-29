@@ -14,10 +14,11 @@ export class CustomerService {
 
   public all(): Observable<ICustomer[]> {
     return this.http.get<ICustomer[]>(
-      `${environment.BASE_URL}/customer?_limit=3`
+      `${environment.BASE_URL}/customer?_limit=5`
     );
   }
 
+  
   public search(field: string, query: string): Observable<ICustomer[]> {
     return this.http.get<ICustomer[]>(
       `${environment.BASE_URL}/customer?_limit=5&${field}=${query}`

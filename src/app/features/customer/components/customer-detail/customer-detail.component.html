@@ -1,9 +1,0 @@
-<li (click)="customerReservasi()" class="flex justify-between items-center bg-violet-50 p-4 rounded-lg shadow mb-2">
-  <div class="mr-auto">
-    <div class="font-bold text-violet-900">{{ customer.name }}</div>
-    <div class="">
-    <div class="text-violet-600 mb-5">{{ customer.email }}</div>
-    <div [ngClass]="customer.status === 'macet' ? 'bg-red-500 rounded-full w-20 text-center text-sm' : 'bg-green-500 rounded-full w-20 text-center text-sm'" class="text-white font-bold uppercase ">{{ customer.status }}</div>
-  </div>
-  </div>
-</li>

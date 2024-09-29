@@ -23,16 +23,17 @@ let MOCK_DATA = [
 @Component({
   selector: 'app-todo',
   template: `
-    <div class="bg-white shadow-md rounded-lg overflow-hidden mb-20 mx-auto w-full">
-      <div class="p-4">
-        <h5 class="text-lg text-violet-800 mb-5 font-bold">{{ title }}</h5>
-        <app-todo-form *ngIf="!forTrash"></app-todo-form>
-      </div>
-      <app-todo-list [forTrash]="forTrash" [todos]="todos"></app-todo-list>
-      <div class="p-4 bg-violet-50">
-        <app-todo-total [forTrash]="forTrash"></app-todo-total>
-      </div>
-    </div>
+    <div class="tw-bg-white tw-shadow-md tw-rounded-lg tw-overflow-hidden tw-mb-20 tw-mx-auto tw-w-full">
+  <div class="tw-p-4">
+    <h5 class="tw-text-lg tw-text-violet-800 tw-mb-5 tw-font-bold">{{ title }}</h5>
+    <app-todo-form *ngIf="!forTrash"></app-todo-form>
+  </div>
+  <app-todo-list [forTrash]="forTrash" [todos]="todos"></app-todo-list>
+  <div class="tw-p-4 tw-bg-violet-50">
+    <app-todo-total [forTrash]="forTrash"></app-todo-total>
+  </div>
+</div>
+
   `,
   styleUrls: ['./todo.component.css'],
 })

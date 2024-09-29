@@ -1,37 +1,37 @@
-<li class="flex justify-between items-start bg-violet-50 p-4  shadow-md">
-  <div class="flex-1">
+<li class="tw-flex tw-justify-between tw-items-start tw-bg-violet-50 tw-p-4 tw-shadow-md">
+  <div class="tw-flex-1">
     <!-- Display Task or Edit Mode -->
-    <div *ngIf="!isEdit" [ngClass]="getClass(todo.isDone)" class="font-bold text-violet-700 flex items-center space-x-2">
-      <input *ngIf="!forTrash" type="checkbox" [(ngModel)]="todo.isDone" class="form-checkbox text-violet-500" />
+    <div *ngIf="!isEdit" [ngClass]="getClass(todo.isDone)" class="tw-font-bold tw-text-violet-700 tw-flex tw-items-center tw-space-x-2">
+      <input *ngIf="!forTrash" type="checkbox" [(ngModel)]="todo.isDone" class="tw-form-checkbox tw-text-violet-500" />
       <span>{{ todo.task }}</span>
     </div>
-    <div *ngIf="isEdit" [ngClass]="getClass(todo.isDone)" class="font-bold">
+    <div *ngIf="isEdit" [ngClass]="getClass(todo.isDone)" class="tw-font-bold">
       <input
         type="text"
         (keyup.enter)="edit()"
         [(ngModel)]="todo.task"
-        class="form-input block w-full p-2 border border-violet-300 rounded-md shadow-sm focus:ring-violet-500 focus:border-violet-500"
+        class="tw-form-input tw-block tw-w-full tw-p-2 tw-border tw-border-violet-300 tw-rounded-md tw-shadow-sm focus:tw-ring-violet-500 focus:tw-border-violet-500"
       />
     </div>
   </div>
 
   <!-- For Trash Actions -->
-  <div *ngIf="forTrash" class="flex space-x-2">
+  <div *ngIf="forTrash" class="tw-flex tw-space-x-2">
     <button
       (click)="restore()"
-      class="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 focus:outline-none"
+      class="tw-bg-green-500 tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-green-600 focus:tw-outline-none"
     >
       <fa-icon [icon]="icons.restore"></fa-icon>
     </button>
   </div>
 
   <!-- Standard Actions -->
-  <div *ngIf="!forTrash" class="flex space-x-2">
+  <div *ngIf="!forTrash" class="tw-flex tw-space-x-2">
     <!-- Remove button -->
     <button
       *ngIf="!isEdit && !isConfirmRemove"
       (click)="isConfirmRemove = !isConfirmRemove"
-      class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 focus:outline-none"
+      class="tw-bg-red-500 tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-red-600 focus:tw-outline-none"
     >
       <fa-icon [icon]="icons.remove"></fa-icon>
     </button>
@@ -40,7 +40,7 @@
     <button
       *ngIf="isConfirmRemove"
       (click)="remove()"
-      class="bg-violet-300 text-white p-2 rounded-full hover:bg-violet-400 focus:outline-none"
+      class="tw-bg-violet-300 tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-violet-400 focus:tw-outline-none"
     >
       <fa-icon [icon]="icons.confirm"></fa-icon>
     </button>
@@ -49,8 +49,8 @@
     <button
       *ngIf="!isConfirmRemove"
       (click)="edit()"
-      [ngClass]="isEdit ? 'bg-green-500' : 'bg-yellow-500'"
-      class="text-white p-2 rounded-full hover:bg-opacity-80 focus:outline-none"
+      [ngClass]="isEdit ? 'tw-bg-green-500' : 'tw-bg-yellow-500'"
+      class="tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-opacity-80 focus:tw-outline-none"
     >
       <div *ngIf="isEdit; then tptSave; else tptEdit"></div>
       <ng-template #tptSave>
@@ -62,7 +62,7 @@
     </button>
 
     <!-- Cancel Edit -->
-    <button *ngIf="isEdit" (click)="edit()" class="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-600 focus:outline-none">
+    <button *ngIf="isEdit" (click)="edit()" class="tw-bg-gray-500 tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-gray-600 focus:tw-outline-none">
       <fa-icon [icon]="icons.cancel"></fa-icon>
     </button>
 
@@ -70,7 +70,7 @@
     <button
       *ngIf="isConfirmRemove"
       (click)="isConfirmRemove = false"
-      class="bg-gray-500 text-white p-2 rounded-full hover:bg-gray-600 focus:outline-none"
+      class="tw-bg-gray-500 tw-text-white tw-p-2 tw-rounded-full hover:tw-bg-gray-600 focus:tw-outline-none"
     >
       <fa-icon [icon]="icons.cancel"></fa-icon>
     </button>
