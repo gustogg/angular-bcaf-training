@@ -1,8 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from './cores/services/user.service';
 import { IUser } from './cores/interfaces/i-user';
+import { FormGroup, NgForm } from '@angular/forms';
 
+const MOCK_DATA ={
+  email: "ambatukam@mail.com",
+  username: "rusdi",
+  menikah: false,
+  gender: "pria",
+  hobi: 2,
+  address:{
+    city: 'Jakarta Tenggara',
+    zipCode: '12344',
+    street: 'jl.ngawi raya'
+    
+  }
+}
 class MyStyle {
   color: string = 'green';
   'font-size.px': number = 32;
@@ -15,10 +29,44 @@ class MyStyle {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  @ViewChild('form') form!: NgForm;
   users: IUser[] = [];
   loading: boolean = false;
+  user: {
+    username: string;
+    email: string;
+  } = { username: '', email: '' };
+
+  onDefault() {
+    this.form.setValue(MOCK_DATA);
+  }
+
+  onChangeHobi() {
+    this.form.controls['hobi'].setValue(3);
+  }
+
+  onPatching() {
+    let obj = {
+      menikah: true,
+      gender: 'wanita',
+    };
+
+    this.form.control.patchValue(obj);
+  }
+
+  onChangeAddress() {
+    let obj = {
+      city: 'Jakarta Barat',
+    };
+
+    let formGroup = this.form.controls['address'] as FormGroup;
+    formGroup.patchValue(obj);
+  }
+
   onSubmit() {
-    console.log('Hello Form');
+    this.user = this.form.value;
+    // console.log(this.form.value);
+    console.log(this.form.value);
   }
   counter: number = 10;
 
@@ -95,6 +143,8 @@ export class AppComponent {
     { id: 9, title: 'Webcam', stock: 18, price: 800000 },
     { id: 10, title: 'Router', stock: 30, price: 900000 },
   ];
+
+  
 }
 
 interface ICategory {

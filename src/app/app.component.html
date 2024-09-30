@@ -1,69 +1,239 @@
-<!-- <div class="tw-pt-10 tw-bg-violet-600"></div>
-  <div class="row tw-bg-violet-600">
-    <div class="col-md-12 tw-bg-violet-600 tw-w-1/2 tw-mx-auto">
-      <form #form="ngForm" (submit)="onSubmit()">
-        <div class="form-group mb-3 tw-font-bold tw-text-white ">
-          <label>Email</label>
-          <input
-            class="form-control"
-            type="email"
-            #email="ngModel"
-            name="email"
-            ngModel
-            required
-            email
-          />
-          <div
-            *ngIf="!email.valid && (email.dirty || email.touched)"
-            class="text-helper text-danger"
-          >
-            <span *ngIf="email.errors!['required']">Email is required</span>
-            <span *ngIf="email.errors!['email']">Invalid email address</span>
+
+<!-- Day 7 - forms conditional -->
+<!-- <div class="container my-5">
+  <div class="row">
+    <div class="col-md-6 tw-mx-auto">
+      <div class="card">
+        <form #form="ngForm" (submit)="onSubmit()">
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group mb-3 col">
+                <label class="mb-2">Email</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  #email="ngModel"
+                  name="email"
+                  ngModel
+                  required
+                  email
+                  [ngClass]="{
+                    'border-success': email.valid,
+                  }"
+                />
+                <app-message-validation [field]="email" [label]="'email'" />
+              </div>
+              <div class="form-group mb-3 col">
+                <label class="mb-2">Username</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  #username="ngModel"
+                  name="username"
+                  ngModel
+                  required
+                  [maxlength]="10"
+                  [minlength]="5"
+                  pattern="^[a-zA-Z]+$"
+                  [ngClass]="{
+                    'border-success': username.valid,
+                  }"
+                />
+                <app-message-validation
+                  [field]="username"
+                  [label]="'username'"
+                />
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="form-group col">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    ngModel
+                    #menikah="ngModel"
+                    name="menikah"
+                    required
+                  />
+                  <label class="form-check-label"> Menikah </label>
+                </div>
+
+                <div
+                  *ngIf="!menikah.valid && (menikah.dirty || menikah.touched)"
+                  class="text-helper text-danger"
+                >
+                  <span *ngIf="menikah.errors!['required']">
+                    Menikah is required
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group col">
+                <label>Gender</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    ngModel
+                    #gender="ngModel"
+                    name="gender"
+                    required
+                    value="pria"
+                  />
+                  <label class="form-check-label"> Pria </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    ngModel
+                    #gender="ngModel"
+                    name="gender"
+                    required
+                    value="wanita"
+                  />
+                  <label class="form-check-label"> Wanita </label>
+                </div>
+
+                <app-message-validation [field]="gender" [label]="'gender'" />
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="form-group">
+                <label class="mb-2">Hobi</label>
+                <select
+                  class="form-select"
+                  name="hobi"
+                  required
+                  ngModel
+                  #hobi="ngModel"
+                >
+                  <option [ngValue]="null">Open this select hobi</option>
+                  <option [ngValue]="1">Berenang</option>
+                  <option [ngValue]="2">Mancing</option>
+                  <option [ngValue]="3">Turu</option>
+                </select>
+
+                <app-message-validation [field]="hobi" [label]="'hobi'" />
+              </div>
+            </div>
+
+            <div class="row mb-3" ngModelGroup="address">
+              <div class="form-group col">
+                <label class="mb-2">City</label>
+                <input
+                  
+                  type="text"
+                  class="form-control"
+                  name="city"
+                  #addressCity="ngModel"
+                  ngModel
+                  required
+                />
+
+                <app-message-validation
+                  [field]="addressCity"
+                  [label]="'city'"
+                />
+              </div>
+
+              <div class="form-group col">
+                <label class="mb-2">Zip Code</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="zipCode"
+                  ngModel
+                  required
+                  #addressZipCode="ngModel"
+                />
+
+                <app-message-validation
+                  [field]="addressZipCode"
+                  [label]="'zip code'"
+                />
+              </div>
+            </div>
+
+            <div class="row" ngModelGroup="address">
+              <div class="form-group col">
+                <label class="mb-2">Street</label>
+                <textarea
+                  class="form-control"
+                  #addressStreet="ngModel"
+                  name="street"
+                  ngModel
+                  required
+                ></textarea>
+                <app-message-validation
+                  [field]="addressStreet"
+                  [label]="'street'"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group mb-3 tw-font-bold tw-text-white">
-          <label>Username</label>
-          <input
-            class="form-control"
-            type="text"
-            #username="ngModel"
-            name="username"
-            ngModel
-            required
-            [maxlength]="10"
-            [minlength]="5"
-            pattern="^[a-zA-Z]+$"
-          />
-          <div
-            *ngIf="!username.valid && (username.dirty || username.touched)"
-            class="text-helper text-danger "
-          >
-            <span *ngIf="username.errors!['required']">
-              Username is required
-            </span>
-            <span *ngIf="username.errors!['minlength']">
-              Username minimum length is
-              {{ username.errors!["minlength"].requiredLength }}, but actual
-              length is {{ username.errors!["minlength"].actualLength }}.
-            </span>
-            <span *ngIf="username.errors!['maxlength']">
-              Username maximum length is
-              {{ username.errors!["maxlength"].requiredLength }}, but actual
-              length is {{ username.errors!["maxlength"].actualLength }}.
-            </span>
-            <span *ngIf="username.errors!['pattern']"> Invalid username </span>
+
+          <div class="card-footer d-flex gap-3">
+            <button
+              [disabled]="form.invalid"
+              class="btn btn-primary"
+              type="submit"
+            >
+              Save
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="form.reset()"
+              type="button"
+            >
+              Reset
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="onDefault()"
+              type="button"
+            >
+              Default
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="onChangeHobi()"
+              type="button"
+            >
+              Change Hobi
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="onPatching()"
+              type="button"
+            >
+              Patch Level 1
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="onChangeAddress()"
+              type="button"
+            >
+              Ubah Alamat
+            </button>
           </div>
-        </div>
-        <button class="btn btn-primary" [disabled]="form.invalid" type="submit">
-          Save
-        </button>
-      </form>
+        </form>
+      </div>
     </div>
-  </div> -->
+  </div>
+</div> -->
+
+
+
+
+
 
 <!-- end of Day 7 -->
 
-<div class="tw-min-h-screen tw-w-full tw-pt-10 tw-bg-violet-200 tw-pb-24 tw-bg-violet-900 tw-pt-96">
+<div class="tw-min-h-screen tw-w-full  tw-bg-violet-200 tw-bg-violet-900 tw-pt-24">
   <!-- <app-navigation></app-navigation> -->
 
     <!-- <app-berkas
@@ -74,10 +244,11 @@
 
     <!-- ini app todo -->
     
-<!-- Day 7 Form Testing -->
 
-    <div class="container tw-mx-auto tw-my-5">
-      <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-2">
+    <h1 class="tw-text-center tw-text-white tw-text-white tw-text-4xl tw-font-sans tw-pb-16 tw-font-bold">Reservation APP</h1>
+
+    <div class="container tw-mx-auto tw-pb-40">
+      <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-24">
         <div class="md:tw-col-span-4 lg:tw-col-span-2">
           <app-customer-choice></app-customer-choice>
         </div>
