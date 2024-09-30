@@ -15,7 +15,7 @@ export class CustomerListComponent implements OnInit {
   customers: ICustomer[] = [];
   paginatedCustomers: ICustomer[] = [];
   currentPage = 1;
-  itemsPerPage = 4; // Set to 3 items per page
+  itemsPerPage = 3; 
 
   constructor(private customerService: CustomerService) {}
 
@@ -26,7 +26,7 @@ export class CustomerListComponent implements OnInit {
     });
   }
 
-  // Update the paginated customers based on the current page
+    // Pagination Update For The Recent Page
   updatePaginatedCustomers() {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
@@ -39,6 +39,6 @@ export class CustomerListComponent implements OnInit {
   }
 
   onCustomerClick(customer: ICustomer) {
-    this.customerClicked.emit(customer); // Emit the clicked customer to the parent
+    this.customerClicked.emit(customer); 
   }
 }

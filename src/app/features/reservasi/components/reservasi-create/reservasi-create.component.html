@@ -67,7 +67,7 @@
 
     <!-- Biaya Estimasi -->
     <div>
-      <label class="tw-block tw-text-sm tw-font-medium tw-text-violet-700">Biaya Estimasi</label>
+      <label aria-required="true" class="tw-block tw-text-sm tw-font-medium tw-text-violet-700">Biaya Estimasi</label>
       <input
         [(ngModel)]="reservasi.estimasi"
         type="number"
@@ -87,10 +87,9 @@
       Simpan
     </button>
   </div>
-  
+<!--   
   <pre class="tw-bg-violet-100 tw-p-4 tw-rounded-lg">
     <p class="tw-font-bold tw-font-sans tw-uppercase">Data Preview</p>
     {{ reservasi | json }}
-    <!-- {{1727505000000 | date: "medium"}} -->
-  </pre>
+  </pre> -->
 </div>

@@ -17,7 +17,9 @@ class MyStyle {
 export class AppComponent {
   users: IUser[] = [];
   loading: boolean = false;
-
+  onSubmit() {
+    console.log('Hello Form');
+  }
   counter: number = 10;
 
   handler(data: number) {

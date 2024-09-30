@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IReservasi } from '../../../../cores/interfaces/i-reservasi';
 import { Reservasi } from '../../../../cores/models/reservasi';
 import { ReservasiService } from '../../../../cores/services/reservasi.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-reservasi-create',
@@ -32,4 +33,8 @@ export class ReservasiCreateComponent {
     this.reservasiService.reservasi = data;
   }
   
+  // onSubmit( from: NgForm){
+  //   console.log ();
+
+  // }
 }
