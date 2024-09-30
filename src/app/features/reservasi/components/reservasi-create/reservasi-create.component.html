@@ -75,9 +75,9 @@
       />
     </div>
       
-    <div class="tw-row tw-mb-3 tw-mt-3" *ngIf="reservasi.customer">
+    <div class="tw-row tw-mb-3 tw-mt-3 tw-w-96" *ngIf="reservasi.customer">
       <app-customer-detail
-        [customer]="reservasi.customer"
+        [customer]="reservasi.customer" [clearButton]="false"
       ></app-customer-detail>
     </div>
   </div>
