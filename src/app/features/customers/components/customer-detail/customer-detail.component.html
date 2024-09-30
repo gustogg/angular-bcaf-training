@@ -2,14 +2,14 @@
   <div class="tw-w-3/4">
 <li
   [ngClass]="{
-    'tw-flex tw-justify-between tw-items-center tw-bg-violet-200': isCustomerSelected(),
+    'tw-flex tw-justify-between tw-items-center tw-bg-violet-500 tw-text-white': isCustomerSelected(),
     'tw-flex tw-justify-between tw-items-center tw-bg-violet-50 hover:tw-bg-violet-200': !isCustomerSelected()
   }"
   class="tw-p-4 tw-rounded-lg tw-shadow tw-mb-2"
 >
   <div class="tw-mr-auto">
-    <div class="tw-font-bold tw-text-violet-900">{{ customer.name }}</div>
-      <div class="tw-text-violet-600 tw-mb-5">{{ customer.email }}</div>
+    <div class="tw-font-bold ">{{ customer.name }}</div>
+      <div class=" tw-mb-5">{{ customer.email }}</div>
       <div
         [ngClass]="customer.status === 'macet' ? 'tw-bg-red-500 tw-rounded-full tw-w-20 tw-text-center tw-text-sm' : 'tw-bg-green-500 tw-rounded-full tw-w-20 tw-text-center tw-text-sm'"
         class="tw-text-white tw-font-bold tw-uppercase"
