@@ -1,27 +1,42 @@
-# MyApp
+# Reservation App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
+This is a **Reservation App** built using **Angular**, **TypeScript**, **TailwindCSS**, and **Bootstrap**. The app includes robust features for managing reservations, including pagination and filtering capabilities to help users quickly navigate and locate data.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Pagination**: Efficiently divide and display data with pagination. The app uses Angular's `ngb-pagination` component to navigate between multiple pages, with a customizable number of items per page.
+  
+- **Filtering**: Easily filter reservations based on various criteria to quickly find relevant data. This enhances the user experience by minimizing time spent searching for specific entries.
 
-## Code scaffolding
+- **TailwindCSS Integration**: The app leverages **TailwindCSS** for streamlined styling and responsive design, ensuring a clean and modern user interface.
+  
+- **Bootstrap Components**: Utilizes **Bootstrap** for enhanced UI components such as pagination and form handling.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+- **Angular**: Frontend framework for building dynamic web applications.
+- **TypeScript**: Typed superset of JavaScript to build maintainable code.
+- **TailwindCSS**: Utility-first CSS framework for fast and easy styling.
+- **Bootstrap**: Frontend framework for responsive design and reusable components.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How to Run the Project
 
-## Running unit tests
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/reservation-app.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Navigate to the project directory:
+   ```bash
+   cd reservation-app
 
-## Running end-to-end tests
+3. Install dependencies:
+   ```bash
+   npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Run the development server:
+   ```bash
+   ng serve
 
-## Further help
+5. Access the app in your browser at http://localhost:4200.
+   
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
